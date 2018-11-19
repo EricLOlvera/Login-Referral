@@ -30,10 +30,14 @@ export class SignUpComponent implements OnInit {
     });
 
     this.dataService.referral.subscribe(res => {
+      console.log('Referred : ' + res);
       this.user.referred_by = res;
     });
 
-    this.route.params.subscribe(params => this.dataService.getRef(params['code']));
+    this.route.params.subscribe(params => {
+      if(params['code'])
+        this.dataService.getRef(params['code']);
+      });
   }
 
   signUp() {
