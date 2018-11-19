@@ -1,0 +1,11 @@
+.hero {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/StockSnap_S4T2FDBYCN.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

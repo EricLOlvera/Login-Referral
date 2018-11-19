@@ -1,0 +1,26 @@
+@import '~src/styles/forms';
+
+
+:host {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.login__form {
+    height: 30%;
+}
+
+.logo {
+    .logo__img{
+
+    }
+}
+
+.login__footer {
+    color: $light;
+    font-size: 0.8rem;
+}
+

@@ -1,0 +1,25 @@
+<div class="logo">
+    <img src="../../assets/logo.svg" alt="" class="logo__img">
+  </div>
+  
+  <form class="sign-up__form form">
+    <div class="input-group">
+      <i class="input-group__icon fas fa-envelope"></i>
+      <input type="email" class="input-group__input" placeholder="email" name="email" [(ngModel)] ="email">
+    </div>
+
+    <div class="input-group">
+      <i class="input-group__icon fas fa-user"></i>
+      <input type="text" class="input-group__input" placeholder="username" name="username" [(ngModel)] ="username">
+    </div>
+    
+    <div class="input-group">
+      <i class="input-group__icon fas fa-key"></i>
+      <input type="password" class="input-group__input" placeholder="password" name="password"  [(ngModel)] ="password">
+    </div>
+    
+    <button class="button" (click)="sign_up()">Sign up</button>
+  </form>
+  <div class="error"*ngIf="!valid">{{error_msg}}</div>
+  
+  <span class="sign-up__footer">Not the firs time here ? <a class="link" href="home/login">Log in.</a></span>

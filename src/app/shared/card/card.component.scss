@@ -1,0 +1,8 @@
+@import '~src/styles/shared';
+
+:host{
+    width: 20%;
+    height: 70%;
+    background-color: $clear;
+    border-radius: $round;
+}

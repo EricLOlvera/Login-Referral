@@ -1,0 +1,23 @@
+@import '~src/styles/forms';
+
+:host {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo {
+    &__img {
+
+    }
+}
+.sign-up__form {
+    height: 40%;
+}
+
+.sign-up__footer {
+    color: $light;
+    font-size: 0.8rem;
+}
