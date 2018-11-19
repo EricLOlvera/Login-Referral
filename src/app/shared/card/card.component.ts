@@ -16,7 +16,7 @@ export class CardComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.screen = params['screen'] || 'login';
       console.log('override on init ' + this.screen);
-   });
+    });
   }
 
 }

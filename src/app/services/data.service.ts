@@ -7,6 +7,10 @@ import { User, Response } from '../models';
 export class DataService {
   response: Observable<Response>;
   private _response: Subject<Response>;
+  private dataStorage :User;
+
+  referral: Observable<string>;
+  private _referral: Subject<string>;
 
   private baseURL: string;
 
@@ -14,11 +18,14 @@ export class DataService {
     this.baseURL = 'https://referral-bf7dc.firebaseio.com/users/';
     this._response = new Subject<Response>();
     this.response = this._response.asObservable();
+
+    this._referral = new Subject<string>();
+    this.referral = this._referral.asObservable();
   }
 
   signUp(user: User) {
     this.http.get<User>(this.baseURL + user.username + '.json').subscribe(resp => {
-      if( resp === null) {
+      if (resp === null) {
         this.http.put(this.baseURL + user.username + '.json', user).subscribe(resp => {
           this._response.next(new Response(user, 'OK'));
         });
@@ -30,11 +37,12 @@ export class DataService {
 
   login(user: User) {
     this.http.get<User>(this.baseURL + user.username + '.json').subscribe(resp => {
-      if( resp === null) {
+      if (resp === null) {
         this._response.next(new Response(null, 'The username does not exist.'));
       } else {
-        if(resp.password === user.password) {
+        if (resp.password === user.password) {
           this._response.next(new Response(user, 'OK'));
+          this.dataStorage = resp;
         } else {
           this._response.next(new Response(null, 'Incorrect password.'));
         }
@@ -42,4 +50,16 @@ export class DataService {
     });
     return true;
   }
+
+  getRef(code: string) {
+    this.http.get<string>('https://us-central1-referral-bf7dc.cloudfunctions.net/getRefByCode', {
+      params: { 'code': code },
+      observe: 'body'
+    }).subscribe(data => {
+      this._referral.next(data);
+    }, error => console.error(error)
+    );
+  }
+
+  getUser(): User { return this.dataStorage; }
 }

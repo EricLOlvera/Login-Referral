@@ -1,0 +1,49 @@
+@import '~src/styles/shared';
+@import '~src/styles/forms';
+
+:host {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.friends{
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    right: 100%;
+    border-radius: $round;
+    background: $clear;
+    &__list {
+
+    }
+}
+
+.dashboard{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    &__message {
+        color: $light;
+        text-align: center;
+        &--accent {
+            color: $accent;
+        }
+    }
+    &__referral{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 40%;
+        &__qr{
+            width: 10rem;
+            height: 10rem;
+        }
+    }
+}

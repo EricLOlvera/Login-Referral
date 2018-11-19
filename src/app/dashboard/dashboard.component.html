@@ -1,0 +1,17 @@
+<aside class="friends">
+  <ul class="friends__list">
+
+  </ul>
+</aside>
+<section class="dashboard">
+  <div class="dashboard__message">
+    <h2> Welcome {{user.username}}</h2>
+    <h3> friend of <b class="dashboard__message--accent">{{user.referred_by}}</b>.</h3>
+  </div>
+
+  <div class="dashboard__referral">
+    <canvas class="dashboard__referral__qr" #qr width="100" height="100"></canvas>
+
+    <button class="button" (click)="copyRefLink()">Copy Referral Code</button>
+  </div>
+</section>

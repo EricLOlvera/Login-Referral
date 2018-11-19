@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private dataService: DataService, public router: Router) { 
     this.valid = true;
-    this.user = new User('', '', '', '');
+    this.user = new User('', '', '', '', null);
   }
   
   ngOnInit() {
@@ -29,14 +29,10 @@ export class LoginComponent implements OnInit {
       this.valid = res.user ? true : false;
 
       if( res.user) {
-        this.router.navigateByUrl('welcome');
+        this.router.navigateByUrl('home/dashboard');
       }
     });
   }
 
-  login() {
-    console.log('Login in progres...');
-    this.dataService.login(this.user);
-    console.log(this.username + ' ' + this.password);
-  }
+  login() { this.dataService.login(this.user); }
 }

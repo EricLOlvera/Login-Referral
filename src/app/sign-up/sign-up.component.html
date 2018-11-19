@@ -1,6 +1,8 @@
 <div class="logo">
     <img src="../../assets/logo.svg" alt="" class="logo__img">
   </div>
+
+  <span class="message" *ngIf="user.referred_by">Your friend <b class="message__accent">{{user.referred_by}}</b> is waiting for you to join.</span>
   
   <form class="sign-up__form form">
     <div class="input-group">

@@ -13,6 +13,15 @@
 
     }
 }
+
+.message {
+    color: $light;
+    font-size: 0.8rem;
+    &__accent {
+        color: $accent;
+    }
+}
+
 .sign-up__form {
     height: 40%;
 }

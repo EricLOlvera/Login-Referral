@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { User, Response } from '../models';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,9 +14,9 @@ export class SignUpComponent implements OnInit {
   valid: boolean;
   response: Response;
 
-  constructor(private dataService: DataService, public router: Router) { 
+  constructor(private dataService: DataService, public router: Router, private route: ActivatedRoute) {
     this.valid = true;
-    this.user = new User('', '', '', '');
+    this.user = new User('', '', '', '', null);
   }
 
   ngOnInit() {
@@ -24,19 +24,25 @@ export class SignUpComponent implements OnInit {
       this.response = res;
       this.valid = res.user ? true : false;
 
-      if( res.user) {
+      if (res.user) {
         this.router.navigateByUrl('home/login');
       }
-    })
+    });
+
+    this.dataService.referral.subscribe(res => {
+      this.user.referred_by = res;
+    });
+
+    this.route.params.subscribe(params => this.dataService.getRef(params['code']));
   }
 
-  signUp (){
+  signUp() {
     console.log('Sign up ' + this.user.email + ' ' + this.user.username + ' ' + this.user.password);
     this.user.referral_code = this.createReferralCode();
     this.dataService.signUp(this.user);
   }
 
   private createReferralCode(): string {
-    return 'SOMEREFF';
+    return this.user.username.split('').reduce((acc, cur) => acc = acc + (cur.charCodeAt(0) - 97), '');
   }
 }
