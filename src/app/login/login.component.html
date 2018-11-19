@@ -5,16 +5,16 @@
 <form class="login__form form">
   <div class="input-group">
     <i class="input-group__icon fas fa-user"></i>
-    <input type="text" class="input-group__input" placeholder="email" name="username" [(ngModel)] ="username">
+    <input type="text" class="input-group__input" placeholder="username" name="username" [(ngModel)] ="user.username" [ngClass]="{'input-group__input--invalid': !valid}">
   </div>
   
   <div class="input-group">
     <i class="input-group__icon fas fa-key"></i>
-    <input type="password" class="input-group__input" placeholder="password" name="password"  [(ngModel)] ="password">
+    <input type="password" class="input-group__input" placeholder="password" name="password"  [(ngModel)] ="user.password" [ngClass]="{'input-group__input--invalid': !valid}">
   </div>
   
   <button class="button" (click)="login()">Login</button>
 </form>
-<div class="error"*ngIf="!valid">{{error_msg}}</div>
+<div class="error"*ngIf="!valid">{{response.message}}</div>
 
 <span class="login__footer">Don't have an account ? <a class="link" href="home/sign-up">Sign up.</a></span>

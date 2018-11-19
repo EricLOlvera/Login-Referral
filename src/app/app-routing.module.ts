@@ -6,7 +6,8 @@ import { CardComponent } from './shared/card/card.component';
 
 const routes: Routes = [
   { path: '', component: CardComponent },
-  { path: 'home/:screen', component: CardComponent }
+  { path: 'home/:screen', component: CardComponent },
+  { path: 'welcome', component: CardComponent }
 ];
 
 @NgModule({
