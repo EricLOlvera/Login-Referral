@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CardComponent implements OnInit {
 
-  private screen: string;
+  public screen: string;
 
   constructor(private route: ActivatedRoute) {}
 
