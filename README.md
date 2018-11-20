@@ -1,4 +1,6 @@
 # ReferralApp
+Try it [HERE](https://referral-bf7dc.firebaseapp.com/)!!.
+---
 
 ![login](./screenshots/login.png)
 
@@ -38,5 +40,10 @@ Run `npm install` inside the functions folder and `firebase deploy` after that.
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md), and for Firebase use `firebase help` or go to[Firebase Support](https://firebase.google.com/support/).
 
+## Resources used :
+
+- BG Image by [Suzy Hazelwood](https://stocksnap.io/author/suzyhazelwood)
+- Logo by [Mackenzie Child](http://acmelogos.com/)
+- QR code generator [node-qrcode](https://stocksnap.io/author/suzyhazelwood)
 
 Made with ❤️ by Eric.
